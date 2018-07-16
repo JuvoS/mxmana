@@ -1,0 +1,5 @@
+.DS_Store
+mana/dist/
+mana/node_modules/
+mana/npm-debug.log
+.project
