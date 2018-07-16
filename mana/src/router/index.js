@@ -7,13 +7,18 @@ export default new Router({
     routes: [
         {
             path: '/',
-            redirect: '/dashboard'
+            redirect: '/main'
         },
         {
             path: '/',
             component: resolve => require(['../components/common/Home.vue'], resolve),
             meta: { title: '自述文件' },
             children:[
+                {
+                    path: '/main',
+                    component: resolve => require(['../components/page/main.vue'], resolve),
+                    meta: { title: '系统主页' }
+                },
                 {
                     path: '/dashboard',
                     component: resolve => require(['../components/page/Dashboard.vue'], resolve),

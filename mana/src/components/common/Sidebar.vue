@@ -30,6 +30,11 @@
             return {
                 collapse: false,
                 items: [
+                	{
+                        icon: 'iconfont icon-account',
+                        index: 'main',
+                        title: '系统主页'
+                    },
                     {
                         icon: 'el-icon-setting',
                         index: 'dashboard',
