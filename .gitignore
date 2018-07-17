@@ -2,4 +2,7 @@
 mana/dist/
 mana/node_modules/
 mana/npm-debug.log
+manaserver/dist/
+manaserver/node_modules/
+manaserver/npm-debug.log
 .project

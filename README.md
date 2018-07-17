@@ -60,8 +60,10 @@
 
 ## 本地开发 ##
 
-	// 开启服务器，浏览器访问 http://localhost:8080
+	// 开启前端服务器，浏览器访问 http://localhost:2322
 	npm run dev
+	// 开启后端服务器，浏览器访问 http://localhost:3322
+	npm run start
 
 ## 构建生产 ##
 
