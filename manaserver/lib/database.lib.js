@@ -16,29 +16,22 @@ db.query = function(connection, sql, paras, callback){
         callback(results);//返回插入的id
     });
 }
-//关闭数据库
-db.close = function(connection){
-    //关闭连接
-    connection.end(function(err){
-        if(err){
-            return;
-        }else{
-            console.log('关闭连接');
-        }
-    });
-}
+
 
 //获取数据库连接
 db.connection = function(){
-    //数据库配置
     let connection = mysql.createConnection(dbInfo);
-    //数据库连接
     connection.connect(function(err){
-        if(err){
-            console.log(err);
-            return;
-        }
+        if(err){console.log(err);return;}
     });
     return connection;
 }
+
+//关闭数据库连接
+db.close = function(connection){
+    connection.end(function(err){
+    	if(err){return;}
+	});
+}
+
 module.exports = db;
