@@ -1,4 +1,5 @@
 var userModel = {
+	tableName: 'mn_usercc',
 	attr: {
         user_name	: String,
         user_pwd 	: String,
