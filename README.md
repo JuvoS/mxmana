@@ -69,4 +69,19 @@
 
 	// 执行构建命令，生成的dist文件夹放在服务器下即可访问
 	npm run build
+	
+## orm2数据类型  ##
+
+```
+	text：文本字符串；
+	number：浮点数。你可以指定size为2 | 4 | 8；
+	integer：整数。你可以指定size为2 | 4 | 8；
+	boolean：true或false的值；
+	date：日期对象。你可以指定time为true；
+	enum：一个备选列表中的值；
+	object：JSON对象；
+	point：N维的点（不被广泛支持）；
+	binary：二进制数据；
+	serial：自增长的整数，用于主键。
+```
 

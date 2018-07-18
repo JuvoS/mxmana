@@ -3,7 +3,7 @@ let database = {
 	host: 'localhost',
 	username: 'root',
 	password: 'root',
-	database: 'orm',
+	database: 'mxt',
     port: 3306
 }
 module.exports = database;
