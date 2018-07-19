@@ -1,7 +1,7 @@
 let database = {
 	protocol: 'mysql',
 	host: 'localhost',
-	username: 'root',
+	user: 'root',
 	password: 'root',
 	database: 'mxt',
     port: 3306

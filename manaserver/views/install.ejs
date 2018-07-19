@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <style type="text/css">
+        body{
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+    <%- include basicInit %>
+</head>
+<body>
+	<%- include layout %>
+    <h1><%= title %></h1>
+    
+    <!-- 数据库 -->
+    <section>
+    	<table>
+	    	<tr>
+	    		<th>内容</th>
+	    		<th>状态</th>
+	    		<th>操作</th>
+	    	</tr>
+	    	<tr>
+	    		<td>数据库</td>
+	    		<td><p>false</p></td>
+	    		<td>
+	    			<form class="col-sm-offset-4 col-sm-4 form-horizontal" role="form" method="post">
+			    		<button type="submit" id="dbInitBtn">初始化</button>
+			    	</form>
+	    		</td>
+	    	</tr>
+	    </table>
+    </section> 
+    <script>
+    	$(function(){
+    		$.ajax({
+			    type:"get",
+			    url:"/install/Status",
+			    dataType: 'json',
+			    async:false,
+			    timeout:500,
+			    success: function(data){
+    				console.log(data);
+    			},
+    			error: function(err){
+    				console.log(err); 
+    			}
+			});
+    	});
+    </script>
+</body>
+</html>

@@ -4,17 +4,18 @@ let mnDb = require('../lib/mndb.lib');
 let dbInfo = require('../conf/database.config');
 let dbLib = require('../lib/db.lib');
 let userModel = require('../core/model/userModel');
+var mysql  = require('mysql');  
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond at api');
 });
 //insert
-router.get('/insert', function (req, res, next) {
+router.get('/insert/:num', function (req, res, next) {
 	var userInfo = { 
 		user_name: "John",
 		user_pwd: "Doe",
-		user_mobile: 28 
+		user_mobile: req.params.num 
 	};
 	dbLib.mInsert(userModel,userInfo,function(){
 		console.log("insert userInfo success!");
@@ -40,29 +41,46 @@ router.get('/limit/:limitNum', function (req, res, next) {
 		"user_name",
 		"user_pwd"
 	];
-	dbLib.mFindLimit(userModel,findInfo,function(data){
-		console.log("find userInfo success!");
-		res.send('respond at api:'+JSON.stringify(data));
-	}, req.params.limitNum, 1, onlyArr);
+var current_page = 2; //默认为1
+  var num = req.params.limitNum; //一页条数
+  if (req.query.page) {
+    current_page = parseInt(req.query.page);
+  }
+ 
+  var last_page = current_page - 1;
+  if (current_page <= 1) {
+    last_page = 1;
+  }
+  var next_page = current_page + 1;
+  var str = 'SELECT * FROM '+userModel.tableName+' limit ' + num + ' offset ' + num * (current_page - 1);
+  var conn = mysql.createConnection(dbInfo);
+ 
+  conn.connect();
+	conn.query(str, function(err, rows, fields) {
+		
+    if (err) return console.log(err);
+//  console.log(rows);
+	  if (!rows[0]) {
+	    res.send('error', '已到最后一页,请返回');
+	  }
+		res.send(rows);
+	});
+  conn.end();
 });
 //page
 router.get('/page/:pageIndex/:limitNum', function (req, res, next) {
-	if(!req.params.pageIndex || req.params.pageIndex ==0){
-		req.params.pageIndex = 1;
-	}
-	if(!req.params.limitNum || req.params.limitNum ==0){
-		req.params.limitNum = 1;
-	}
+	var data = dbLib.mPage(req.params.pageIndex, req.params.limitNum, userModel, [])
+	console.log(data);
+	res.send(data);
+});
+//count
+router.get('/count', function (req, res, next) {
 	var findInfo = { 
 		user_name: "John"
 	};
-	var onlyArr = [
-		"user_name",
-		"user_pwd"
-	];
-	dbLib.mPage(req.params.pageIndex, req.params.limitNum, userModel, findInfo, function(data){
-		console.log("find userInfo success!pageIndex:"+req.params.pageIndex);
-		res.send('respond at api:'+JSON.stringify(data));
+	dbLib.mCount(userModel,findInfo,function(data){
+		console.log("count userInfo success!");
+		res.send('respond at api:');
 	});
 });
 // get请求
