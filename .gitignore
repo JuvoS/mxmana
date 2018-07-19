@@ -5,4 +5,8 @@ mana/npm-debug.log
 manaserver/dist/
 manaserver/node_modules/
 manaserver/npm-debug.log
+manaview/css/
+manaview/fonts/
+manaview/img/
+manaview/js/
 .project

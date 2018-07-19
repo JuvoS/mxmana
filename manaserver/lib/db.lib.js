@@ -1,4 +1,4 @@
-let dbInfo = require('../conf/database.config');
+ let dbInfo = require('../conf/database.config');
 let mnDb = require('./mndb.lib');
 var orm	= require('orm');
 var mysql  = require('mysql');  
@@ -39,19 +39,21 @@ db.mGet = function(dbModel, dbArray, dbFunc){
 }
 
 db.mCount = function(dbModel, dbArray, dbFunc){
-	var  sql = 'SELECT * FROM '+dbModel.tableName;
+	orm.connect(dbInfo, function (err, dbLink) {
+		if (err) throw err;
+	
+	    var dbTemp = dbLink.define(dbModel.tableName, dbModel.attr, dbModel.func);
+	
+	    // add the table to the database
+	    dbLink.sync(function(err) { 
+	        if (err) throw err;
+	        
+	        dbTemp.find({ user_pwd: "Doe" }).count(function (err, data) {
+			    return dbFunc(data);
+			});
 
-	var dbCon =  mysql.createConnection(dbInfo);
-	dbCon.connect();
-	dbCon.query(sql,function (err, result) {
-	        if(err){
-	          console.log('[SELECT ERROR] - ',err.message);
-	          return;
-	        }
-	       console.log(result);
+	    });
 	});
- 
-	dbCon.end();
 }
 
 db.mFind = function(dbModel, dbArray, dbFunc){
@@ -93,24 +95,62 @@ db.mFindLimit = function(dbModel, dbArray, dbFunc, limitNum = 2, offsetNum = 0, 
 
 //分页
 db.mPage = function(pageIndex = 1, pageNum = 2, dbModel, dbArray = []){
-	var current_page = parseInt(pageIndex); //默认为1
-	var num = pageNum; //一页条数
-	var last_page = current_page - 1;
-	if (current_page <= 1) {
-		last_page = 1;
-	}
-	var next_page = current_page + 1;
-	var str = 'SELECT * FROM '+dbModel.tableName+
-	' limit ' + num + ' offset ' + num * (current_page - 1);
-	
-	var conn = mysql.createConnection(dbInfo);
-	conn.connect();
-	conn.query(str, function(err, rows, fields) {
-		if (err) return console.log(err);
-		console.log(rows);
-		return rows;
+	return new Promise(function(resolve,reject){
+		var current_page = parseInt(pageIndex); //默认为1
+		var num = pageNum; //一页条数
+		var last_page = current_page - 1;
+		if (current_page <= 1) {
+			last_page = 1;
+		}
+		var next_page = current_page + 1;
+		var str = 'SELECT * FROM '+dbModel.tableName+
+		' limit ' + num + ' offset ' + num * (current_page - 1);
+		
+		var conn = mysql.createConnection(dbInfo);
+		conn.connect();
+		conn.query(str, function(err, rows) {
+			if(err){
+                reject(err);
+            	return;
+           }
+			resolve(rows);
+		});
+		conn.end();
 	});
-//	conn.end();
+}
+
+db.mDelete = function(dbModel, dbArray, dbFunc){
+	orm.connect(dbInfo, function (err, dbLink) {
+		if (err) throw err;
+	
+	    var dbTemp = dbLink.define(dbModel.tableName, dbModel.attr, dbModel.func);
+	    dbLink.sync(function(err) { 
+	        if (err) throw err;
+	        
+	        dbTemp.find(dbArray).remove(function (err) {
+			    return dbFunc();
+			});
+	    });
+	});
+}
+
+db.mUpdate = function(dbModel, dbArray, resData, dbFunc){
+	orm.connect(dbInfo, function (err, dbLink) {
+		if (err) throw err;
+	
+	    var dbTemp = dbLink.define(dbModel.tableName, dbModel.attr, dbModel.func);
+	    dbLink.sync(function(err) { 
+	        if (err) throw err;
+	        console.log(resData.length);
+	        dbTemp.find(dbArray).each(function (res) {    
+	        	for(var i=0;i<resData.length;i++){
+	        		res[resData[i]['name']] = resData[i]['info'];
+	        	}
+			}).save(function (err) {
+			    return dbFunc();
+			});
+	    });
+	});
 }
 
 //递归创建数据模型

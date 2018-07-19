@@ -3,6 +3,7 @@ var router = express.Router();
 let mnDb = require('../lib/mndb.lib');
 let dbInfo = require('../conf/database.config');
 let dbLib = require('../lib/db.lib');
+const jsonFun = require('../lib/json.lib.js');
 let userModel = require('../core/model/userModel');
 var mysql  = require('mysql');  
 
@@ -68,10 +69,9 @@ var current_page = 2; //默认为1
   conn.end();
 });
 //page
-router.get('/page/:pageIndex/:limitNum', function (req, res, next) {
-	var data = dbLib.mPage(req.params.pageIndex, req.params.limitNum, userModel, [])
-	console.log(data);
-	res.send(data);
+router.get('/page/:pageIndex/:limitNum', [jsonFun.jsonAccessFun], async function (req, res, next) {
+	var data = await dbLib.mPage(req.params.pageIndex, req.params.limitNum, userModel, [])
+	res.end(JSON.stringify(data));
 });
 //count
 router.get('/count', function (req, res, next) {
@@ -79,8 +79,35 @@ router.get('/count', function (req, res, next) {
 		user_name: "John"
 	};
 	dbLib.mCount(userModel,findInfo,function(data){
-		console.log("count userInfo success!");
-		res.send('respond at api:');
+		return res.end('respond at api:' +data);
+	});
+});
+//delete
+router.get('/delete', function (req, res, next) {
+	var findInfo = { 
+		user_mobile: 12
+	};
+	dbLib.mDelete(userModel,findInfo,function(){
+		return res.end('respond at api: delete right');
+	});
+});
+
+//update
+router.get('/update', function (req, res, next) {
+	var findInfo = { 
+		user_pwd: 'Dean'
+	};
+	var dataInfo = [{
+		name: 'user_name',
+		info: 'hays'
+	},{
+		name: 'user_email',
+		info: '123@qq.com'
+	}]
+		
+	;
+	dbLib.mUpdate(userModel,findInfo, dataInfo, function(){
+		return res.end('respond at api: update right');
 	});
 });
 // get请求
