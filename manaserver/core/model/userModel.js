@@ -1,5 +1,5 @@
 var userModel = {
-	tableName: 'mn_usercc',
+	tableName: 'mn_user',
 	attr: {
         user_name	: String,	//用户名
         user_pwd 	: String,	//密码

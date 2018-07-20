@@ -73,12 +73,14 @@
 ## orm2数据类型  ##
 
 ```
-	text：文本字符串；
+	{ type: "text"}：文本字符串；
 	String: 字符串；
 	Number：浮点数。你可以指定size为2 | 4 | 8；
 	Boolean：true或false的值；
 	Date：日期对象。你可以指定time为true；
-	enum：一个备选列表中的值， [ "Europe", "America", "Asia", "Africa", "Australia", "Antartica" ]；
+	enum：一个备选列表中的值，
+		{ type: "enum", values: [ "USA", "Canada", "Rest of the World" ] }, 
+		[ "Europe", "America", "Asia", "Africa", "Australia", "Antartica" ]；
 	Object：JSON对象；
 	point：N维的点（不被广泛支持）；
 	Buffer：binary二进制数据；
