@@ -74,6 +74,31 @@ export default new Router({
                     path: '/permission',
                     component: resolve => require(['../components/page/Permission.vue'], resolve),
                     meta: { title: '权限测试', permission: true }
+                },
+                {
+                    path: '/product',
+                    component: resolve => require(['../components/page/product/BaseTable.vue'], resolve),
+                    meta: { title: '产品列表' }
+                },
+                {
+                    path: '/scheme',
+                    component: resolve => require(['../components/page/scheme/BaseTable.vue'], resolve),
+                    meta: { title: '方案列表' }
+                },
+                {
+                    path: '/supplier',
+                    component: resolve => require(['../components/page/supplier/BaseTable.vue'], resolve),
+                    meta: { title: '供应商列表' }
+                },
+                {
+                    path: '/user',
+                    component: resolve => require(['../components/page/user/BaseTable.vue'], resolve),
+                    meta: { title: '用户列表' }
+                },
+                {
+                    path: '/building',
+                    component: resolve => require(['../components/page/building/BaseTable.vue'], resolve),
+                    meta: { title: '楼盘列表' }
                 }
             ]
         },

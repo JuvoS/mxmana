@@ -4,7 +4,7 @@
         <div class="collapse-btn" @click="collapseChage">
             <i class="el-icon-menu"></i>
         </div>
-        <div class="logo">MX.Mana | 后台管理系统</div>
+        <div class="logo"></div>
         <div class="header-right">
             <div class="header-user-con">
                 <!-- 全屏显示 -->
@@ -112,10 +112,18 @@
     .header {
         position: relative;
         box-sizing: border-box;
-        width: 100%;
+        left: 250px;
+        width: calc(100% - 250px);
         height: 70px;
         font-size: 22px;
-        color: #fff;
+        color: #333;
+        -webkit-transition: left .3s ease-in-out;
+	    -o-transition: left .3s ease-in-out;
+	    transition: left .3s ease-in-out;
+    }
+    .header-collapse {
+    	left: 64px;
+    	width: calc(100% - 64px);
     }
     .collapse-btn{
         float: left;
@@ -157,11 +165,11 @@
         width: 8px;
         height: 8px;
         border-radius: 4px;
-        background: #f56c6c;
-        color: #fff;
+        background: #ff5722;
+        color: #333;
     }
     .btn-bell .el-icon-bell{
-        color: #fff;
+        color: #333;
     }
     .user-name{
         margin-left: 10px;
@@ -176,7 +184,7 @@
         border-radius: 50%;
     }
     .el-dropdown-link{
-        color: #fff;
+        color: #333;
         cursor: pointer;
     }
     .el-dropdown-menu__item{
