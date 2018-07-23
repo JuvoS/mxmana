@@ -19,14 +19,14 @@
         },
         mounted() {
         	this.url = './static/vuetable.json';
-//          this.$axios.get(this.url).then((response) => {
-//              let _data=JSON.stringify(response.data);
-//		    	console.log("hello：" + _data);
-//          })
-            this.$axios.get('/show/mee').then((response) => {
+            this.$axios.get(this.url).then((response) => {
                 let _data=JSON.stringify(response.data);
 		    	console.log("hello：" + _data);
             })
+//          this.$axios.get('/show/mee').then((response) => {
+//              let _data=JSON.stringify(response.data);
+//		    	console.log("hello：" + _data);
+//          })
 		}
     }
 
