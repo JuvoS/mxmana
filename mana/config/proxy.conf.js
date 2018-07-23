@@ -24,6 +24,13 @@ module.exports = {
       '^/api': ''
       }
   },
+  '/pattern/':{
+      target: 'http://localhost:3322/api/',
+      changeOrigin: true,
+      pathRewrite: {
+      '^/api': ''
+      }
+  },
   '/show/':{
       target: 'http://localhost:3322/api/menu',
       changeOrigin: true

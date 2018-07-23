@@ -12,6 +12,7 @@ var jsonRouter = require('./routes/json');
 var ormRouter = require('./routes/orm');
 var installRouter = require('./routes/install');
 var menuRouter = require('./routes/menu');
+var patternRouter = require('./routes/pattern');
 
 var app = express();
 
@@ -32,6 +33,7 @@ app.use('/json', jsonRouter);
 app.use('/orm', ormRouter);
 app.use('/install', installRouter);
 app.use('/api/menu', menuRouter);
+app.use('/api/pattern', patternRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
