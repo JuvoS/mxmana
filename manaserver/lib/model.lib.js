@@ -9,7 +9,9 @@ let recordLoginModel = require('../core/model/recordLoginModel');
 let productModel = require('../core/model/productModel');
 let productAttrModel = require('../core/model/productAttrModel');
 let patternAttrModel = require('../core/model/patternAttrModel');
-let patternCateModel = require('../core/model/patternCateModel');
+let patternModel = require('../core/model/patternModel');
+let cateModel = require('../core/model/cateModel');
+let picPoolModel = require('../core/model/picPoolModel');
 
 module.exports = [
 	userModel,
@@ -21,5 +23,7 @@ module.exports = [
 	productModel,
 	productAttrModel,
 	patternAttrModel,
-	patternCateModel
+	patternModel,
+	cateModel,
+	picPoolModel
 ];

@@ -52,6 +52,10 @@
                                 title: '方案'
                             },
                             {
+                                index: 'scheme/create',
+                                title: '创建方案'
+                            },
+                            {
                                 index: 'supplier',
                                 title: '供应商'
                             },

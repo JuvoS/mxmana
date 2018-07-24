@@ -1,11 +1,12 @@
 'use strict';
 
 module.exports = {
-	tableName: 'mn_pic_product',	//产品图片表
+	tableName: 'mn_pic_pool',	//图片池表
 	attr: {
         picId		: String,	//图片Id
-        productId	: String,	//产品Id
+        poolId		: String,	//产品Id
         picName		: String,	//图片名称
+        picType		: String,	//图片类型
         picUrl		: { type: 'text'},	//图片地址
 		open_flag	: String,	//图片开启状态
         createTime	: Date,		//创建时间

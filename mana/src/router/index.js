@@ -40,6 +40,11 @@ export default new Router({
                     meta: { title: '方案列表' }
                 },
                 {
+                    path: '/scheme/create',
+                    component: resolve => require(['../components/page/scheme/create.vue'], resolve),
+                    meta: { title: '创建方案' }
+                },
+                {
                     path: '/supplier',
                     component: resolve => require(['../components/page/supplier/BaseTable.vue'], resolve),
                     meta: { title: '供应商列表' }

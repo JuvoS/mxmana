@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-	tableName: 'mn_pattern_cate',	//模型分类表
+	tableName: 'mn_pattern',	//模型表
 	attr: {
 		patternId	: String,	//产品模型Id
 		patternName	: String,	//模型名

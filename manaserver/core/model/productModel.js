@@ -5,6 +5,7 @@ module.exports = {
 	attr: {
         productId	: String,	//产品Id
         patternId	: String,	//产品模型Id
+        tecId		: String,	//技术信息Id
         picId		: String,	//图片库Id
         title		: String,	//产品标题
         description	: { type: "text"},		//产品描述
