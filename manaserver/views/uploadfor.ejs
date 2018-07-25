@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+</head>
+<body>
+	<form method='post' action='/upload/cc' enctype='multipart/form-data'>
+        <input type="file" name="myfile" id="myfile" mutiple/>
+    	<input type="submit" value="上传" id="submit"/>
+    </form>
+    <hr>
+    <div id="myDiv">
+        <a href="javascript:;" id="fileUpload">文件上传
+         <input type="file" multiple onchange="fileChange(this)" />
+        </a>
+    </div>
+    <div class="fileList" id="fileList">
+        <ul>
+            <li style="width: 30%">文件名</li>
+            <li style="width: 68%">上传情况</li>
+        </ul>
+    </div>
+    <script>
+    	function fileChange(fileInput) {
+        var files = fileInput.files;
+        var tempHtml = "";
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            tempHtml += "<ul>"
+                    + "<li style='width: 30%'>"
+                    + file.name
+                    + "</li>"
+                    + "<li style='width: 68%'><progress id='p"+i+"' max='100' value=''></progress><span id='sp"+i+"'></span></li></ul>";
+            fileUpload(file, i);
+        }
+        document.getElementById("fileList").innerHTML += tempHtml;
+    }
+    function fileUpload(file, index) {
+        var formData = new FormData();
+        formData.append(file.name, file);
+        var xhr = new XMLHttpRequest();
+        var oldUploaded=0;
+        var curUploaded=0;
+        var total=0;
+        var percent=0;
+        xhr.upload.addEventListener("progress",function(event){
+            var loaded=event.loaded;
+            if(oldUploaded==0){
+                total=event.total;
+                oldUploaded=event.loaded;
+            }
+            curUploaded=event.loaded;
+            percent=Math.round(event.loaded/event.total*100);
+            document.getElementById("p"+index).value=percent;
+        });
+        var upSpeed=setInterval(function(){
+            if(oldUploaded!=0){
+                //得到的是一个byte值
+                var result=curUploaded-oldUploaded;
+                var leave=total-curUploaded;
+                var label=document.getElementById("sp"+index);
+                label.innerHTML=percent+"%&nbsp;&nbsp;"+ (Math.round(result/(1024*1024)*100)/100) 
+                + "M/S&nbsp;&nbsp;剩余"+Math.round(leave/result)+"秒";
+                if(total==oldUploaded&&result==0){
+                    clearInterval(upSpeed);
+                }
+                oldUploaded=curUploaded;
+            }
+        },1000);
+        xhr.open("post", "/upload/cc", true);
+        xhr.onload = function (e) {
+	        if(this.status == 200){
+	           console.log(this.response);
+	        }
+	      };
+        xhr.send(formData);
+    }
+
+</script>
+
+</body>
+</html>

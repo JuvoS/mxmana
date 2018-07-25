@@ -17,10 +17,12 @@
   "devDependencies": {
     "async": "^2.6.1",
     "ejs": "^2.6.1",
+    "formidable": "^1.2.1",
+    "multiparty": "^4.1.4",
     "mysql": "^2.16.0",
     "orm": "^5.0.2",
     "q": "^1.5.1",
     "qx": "^1.0.0",
-    "webpack": "^4.16.1"
+    "webpack": "^4.16.2"
   }
 }

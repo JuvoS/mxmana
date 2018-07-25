@@ -5,14 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var ejs = require('ejs');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var userRouter = require('./routes/user');
-var jsonRouter = require('./routes/json');
-var ormRouter = require('./routes/orm');
-var installRouter = require('./routes/install');
-var menuRouter = require('./routes/menu');
-var patternRouter = require('./routes/pattern');
+var basicRouter = require('./routes/basic.router');
 
 var app = express();
 
@@ -26,14 +19,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/api/user', userRouter);
-app.use('/json', jsonRouter);
-app.use('/orm', ormRouter);
-app.use('/install', installRouter);
-app.use('/api/menu', menuRouter);
-app.use('/api/pattern', patternRouter);
+app.use('/', basicRouter.index);
+app.use('/users', basicRouter.users);
+app.use('/api/user', basicRouter.user);
+app.use('/json', basicRouter.json);
+app.use('/orm', basicRouter.orm);
+app.use('/install', basicRouter.install);
+app.use('/api/menu', basicRouter.menu);
+app.use('/api/pattern', basicRouter.pattern);
+app.use('/product', basicRouter.product);
+app.use('/upload', basicRouter.upload);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
