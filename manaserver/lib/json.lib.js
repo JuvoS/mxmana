@@ -1,3 +1,5 @@
+'use strict';
+
 let jsonFun = {}
 //json跨域头部信息修正
 jsonFun.jsonAccessFun = function(req, res, next){

@@ -2,6 +2,7 @@
 let mnDb = require('./mndb.lib');
 var orm	= require('orm');
 var mysql  = require('mysql');  
+let utilLib = require('./util.lib');
 let db = {}
 
 db.mInsert = function(dbModel, dbArray, dbFunc){
@@ -71,6 +72,67 @@ db.mFind = function(dbModel, dbArray, dbFunc){
 	})
 	.catch(function(err) {
 		return err;
+	});
+}
+
+db.mFindOr = function(dbModel, dbArray){
+	return new Promise(function(resolve,reject){
+		var temp = ' ';
+		var lastkey="";
+		for(var key in dbArray){
+			lastkey=key;
+		}
+		for(var key in dbArray){
+			if(key == lastkey){
+				temp += key + '="' + dbArray[key]+'"';
+			}else{
+				temp += key + '="' + dbArray[key]+'" or ';
+			}
+		}
+		var str = 'SELECT * FROM '+dbModel.tableName+' WHERE ' + temp;
+		
+		var conn = mysql.createConnection(dbInfo);
+		conn.connect();
+		conn.query(str,async function(err, rows) {
+			if(err){
+                reject(err);
+            	return;
+           }
+			resolve(rows);
+		});
+		conn.end();
+	});
+}
+
+db.mFindLike = function(dbModel, dbArray){
+	return new Promise(function(resolve,reject){
+		var temp = '';
+		var lastkey='';
+		var str = 'SELECT * FROM '+dbModel.tableName;
+		if(!utilLib.isEmptyObject(dbArray)){
+			for(var key in dbArray){
+				lastkey=key;
+			}
+			for(var key in dbArray){
+				if(key == lastkey){
+					temp += key + ' like "%' + dbArray[key]+'%"';
+				}else{
+					temp += key + ' like "%' + dbArray[key]+'%" or ';
+				}
+			}
+			str += ' WHERE ' + temp;
+		}
+		
+		var conn = mysql.createConnection(dbInfo);
+		conn.connect();
+		conn.query(str,async function(err, rows) {
+			if(err){
+                reject(err);
+            	return;
+           }
+			resolve(rows);
+		});
+		conn.end();
 	});
 }
 

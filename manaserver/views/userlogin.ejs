@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <style type="text/css">
+        body{
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+    <%- include basicInit %>
+</head>
+<body>
+    <h1><%= title %></h1>
+    <p>hello, <%= manaId %></p>
+    <div>
+    	<form id="infoP">
+			<table>
+				<tr><th>手机号</th><td><input name="user_mobile" type="tel" value="132"/></td></tr>
+				<tr><th>密码</th><td><input name="user_pwd" type="text" value="132"/></td></tr>
+			</table>
+			<button type="button" onclick="loginNow()">登录</button>
+		</form>
+    </div>
+    <script>
+    	function loginNow(){
+    		var form = $('#infoP').serializeArray();
+            $.ajax({
+                url:"/users/login",
+                type:"post",
+                data:form,
+                success:function(data){
+                	data = JSON.parse(JSON.stringify(data));
+                	if(data.status === 200){
+                		window.location.reload();
+                	}else{
+                		alert(data.message);
+                	}
+                },
+                error:function(err){
+                    console.log(JSON.stringify(err));
+                }
+            });   
+    	}
+    </script>
+</body>
+</html>

@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var ejs = require('ejs');
+var session = require('express-session');
 
 var basicRouter = require('./routes/basic.router');
 
@@ -18,6 +19,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: 'MANA',
+  duration: 30 * 60 * 1000,
+  resave: false,
+	saveUninitialized: false
+}));
 
 app.use('/', basicRouter.index);
 app.use('/users', basicRouter.users);

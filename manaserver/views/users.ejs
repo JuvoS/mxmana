@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <style type="text/css">
+        body{
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+    <%- include basicInit %>
+</head>
+<body>
+    <h1><%= title %></h1>
+    <p>hello, <%= manaId %></p>
+    <div>
+    	<button id="createBtn" onclick="createPanel()">创建</button>
+    	<div id="createP">
+    		<button onclick="createPanel()">关闭</button>
+    		<p>创建信息</p>
+    		<hr>
+    	</div>
+    		<form id="infoP">
+    			<table>
+    				<tr><th>manaId</th>
+    					<td>
+    						<input name="manaId" type="text" value="<%= manaId %>" />
+    					</td>
+    				</tr>
+    				<tr><th>用户名</th>
+    					<td>
+    						<input name="user_name" type="text" value="<%= manaId %>" />
+    					</td>
+    				</tr>
+    				<tr><th>密码</th><td><input name="user_pwd" type="text" value="132"/></td></tr>
+    				<tr><th>手机号</th><td><input name="user_mobile" type="tel" value="132"/></td></tr>
+    				<tr><th>邮箱</th><td><input name="user_email" type="email" value="125"/></td></tr>
+    			</table>
+    			<button type="button" onclick="createNew()">创建身份</button>
+    		</form>
+    	<button type="button" onclick="upImgPanel()">添加角色</button>
+    	<form enctype="multipart/form-data" id="imgP">
+	        <input type="file" name="inputFile">
+	        <input type="text" name="username"/>
+	        <button type="button" onclick="uploadImg()">上传</button>
+	    </form>
+    </div>
+    <table id="userList">
+    	<tr>
+    		<th>id</th>
+    		<th>name</th>
+    		<th>操作</th>
+    	</tr>
+    	<tr>
+    		<td>1</td>
+    		<td>235</td>
+    		<th><button onclick="editInfo()">编辑</button></th>
+    	</tr>
+    </table>
+    <hr>
+    <form id="editP">
+    	<table>
+			<tr><th>manaId</th>
+				<td><input id="edManaId" name="manaId" type="text" value="" /></td>
+			</tr>
+			<tr><th>用户名</th>
+				<td>
+					<input id="edUserName" name="user_name" type="text" value="<%= manaId %>" />
+				</td>
+			</tr>
+			<tr><th>密码</th><td><input id="edUserPwd" name="user_pwd" type="text" value="132"/></td></tr>
+			<tr><th>手机号</th><td><input id="edUserMobile" name="user_mobile" type="tel" value="132"/></td></tr>
+			<tr><th>邮箱</th><td><input id="edUserEmail" name="user_email" type="email" value="125"/></td></tr>
+		</table>
+		<button type="button" onclick="editUpdate()">修改信息</button>
+    </form>
+    <script>
+    	var dataTemp;
+    	$(function(){
+    		$.ajax({
+    			type:"get",
+    			url:localUrl + "/users/list/all",
+    			async:true,
+    			success: function(data){
+    				var temp = "";
+    				console.log(data);
+    				if(data.status == 200){
+    					dataTemp = data.data;
+    					for(var i=0;i<dataTemp.length;i++){
+    						var edF = "editInfo('"+dataTemp[i]['manaId']+"')";
+    						temp += '<tr><td>'+dataTemp[i]['user_name']
+    						+'</td><td>'+dataTemp[i]['manaId']+'</td>'
+    						+'<td><button onclick="editInfo('+edF+')">编辑</button></td></tr>';
+						}
+    					$("#userList").append(temp);
+    				}
+    			},
+    			error: function(err){
+    				console.log(err);
+    			}
+    		});
+    	});
+    	
+    	var createStatus = false;
+    	createPanel();
+    	function createPanel(){
+    		createStatus = createStatus ? false: true;
+    		if(createStatus){
+    			$("#createBtn").show();
+    			$("#createP").hide();
+    		}else{
+    			$("#createBtn").hide();
+    			$("#createP").show();
+    		}
+    	}  
+    	var imgPStatus = true;
+    	$("#imgP").hide();
+    	function upImgPanel(){
+    		imgPStatus = imgPStatus ? false: true;
+    		if(imgPStatus){
+    			$("#imgP").hide();
+    		}else{
+    			$("#imgP").show();
+    		}
+    	}
+    	function uploadImg(){
+
+            var form = new FormData(document.getElementById("imgP"));
+//             var req = new XMLHttpRequest();
+//             req.open("post", "${pageContext.request.contextPath}/public/testupload", false);
+//             req.send(form);
+            $.ajax({
+                url:"/product/upload",
+                type:"post",
+                data:form,
+                processData:false,
+                contentType:false,
+                success:function(data){
+//                  window.clearInterval(timer);
+                    console.log("over.."+JSON.stringify(data));
+                },
+                error:function(e){
+                    alert("错误！！");
+//                  window.clearInterval(timer);
+                }
+            });        
+        
+    	}
+    	
+    	function createNew(){
+    		var form = $('#infoP').serializeArray();
+            $.ajax({
+                url:"/users/create",
+                type:"post",
+                data:form,
+                success:function(data){
+                	data = JSON.parse(JSON.stringify(data));
+                	if(data.status === 200){
+                		console.log(data);
+                	}else{
+                		alert(data.message);
+                	}
+                },
+                error:function(err){
+                    console.log(JSON.stringify(err));
+                }
+            });   
+    	}
+    	
+    	function editInfo (val){
+    		var editTemp = '';
+    		for(var i=0;i<dataTemp.length;i++){
+    			if(dataTemp[i]['manaId']==val){
+    				editTemp = dataTemp[i];
+    				$("#edManaId").attr("value",editTemp['manaId']);
+		    		$("#edUserName").attr("value",editTemp['user_name']);
+		    		$("#edUserPwd").attr("value",editTemp['user_pwd']);
+		    		$("#edUserMobile").attr("value",editTemp['user_mobile']);
+		    		$("#edUserEmail").attr("value",editTemp['user_email']);
+		    		continue;
+    			}
+    		}	
+    	}
+    	
+    	function editUpdate(){
+    		var form = $('#editP').serializeArray();
+            $.ajax({
+                url:"/users/update",
+                type:"post",
+                data:form,
+                success:function(data){
+                	data = JSON.parse(JSON.stringify(data));
+                	if(data.status === 200){
+                		console.log(data);
+                	}else{
+                		alert(data.message);
+                	}
+                },
+                error:function(err){
+                    console.log(JSON.stringify(err));
+                }
+            });   
+    	}
+    </script>
+</body>
+</html>
