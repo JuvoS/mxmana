@@ -4,6 +4,7 @@ mana/node_modules/
 mana/npm-debug.log
 manaserver/dist/
 manaserver/node_modules/
+manaserver/public/upload/
 manaserver/npm-debug.log
 manaview/css/
 manaview/fonts/
