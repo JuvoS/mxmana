@@ -203,7 +203,6 @@ db.mUpdate = function(dbModel, dbArray, resData, dbFunc){
 	    var dbTemp = dbLink.define(dbModel.tableName, dbModel.attr, dbModel.func);
 	    dbLink.sync(function(err) { 
 	        if (err) throw err;
-	        console.log(resData.length);
 	        dbTemp.find(dbArray).each(function (res) {    
 	        	for(var i=0;i<resData.length;i++){
 	        		res[resData[i]['name']] = resData[i]['info'];

@@ -58,26 +58,28 @@ router.post('/create', async function(req, res, next) {
 
 router.post('/update', async function(req, res, next) {
 	var infoTemp = req.body;
-	var findInfo = { 
-		manaId			: infoTemp.manaId
-	};
-	console.log(infoTemp);
-	var userInfo = [];
-	for(var key in infoTemp){
-		userInfo[]
+	if(infoTemp.manaId){
+		var findInfo = { 
+			manaId			: infoTemp.manaId
+		};
+		var userInfo = [];
+		for(var key in infoTemp){
+			var temp = {
+				name: key,
+				info: infoTemp[key]
+			};
+			userInfo.push(temp);
+		}
+		var updateTime = {
+			name: 'updateTime',
+			info: dateLib.getTimeStamp()
+		};
+		userInfo.push(updateTime);
+		return await dbLib.mUpdate(userModel, findInfo, userInfo,function(){
+			res.json({status: utilLib.status, message: utilLib.message});
+		});
 	}
-	var userInfo = [{ 
-		user_name		: infoTemp.user_name,
-		user_pwd		: infoTemp.user_pwd,
-		user_mobile	: infoTemp.user_mobile, 
-		user_email	: infoTemp.user_email,
-		manaId			: infoTemp.manaId,
-		updateTime	: dateLib.getTimeStamp(),
-		open_flag		: 1
-	}];
-	return await dbLib.mUpdate(userModel, findInfo, userInfo,function(){
-		res.json({status: utilLib.status, message: utilLib.message});
-	});
+	res.json({status: utilLib.failStatus, message: utilLib.failMessage});
 
 });
 

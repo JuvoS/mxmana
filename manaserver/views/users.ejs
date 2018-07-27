@@ -12,69 +12,72 @@
     <%- include basicInit %>
 </head>
 <body>
-    <h1><%= title %></h1>
-    <p>hello, <%= manaId %></p>
-    <div>
-    	<button id="createBtn" onclick="createPanel()">创建</button>
-    	<div id="createP">
-    		<button onclick="createPanel()">关闭</button>
-    		<p>创建信息</p>
-    		<hr>
-    	</div>
-    		<form id="infoP">
-    			<table>
-    				<tr><th>manaId</th>
-    					<td>
-    						<input name="manaId" type="text" value="<%= manaId %>" />
-    					</td>
-    				</tr>
-    				<tr><th>用户名</th>
-    					<td>
-    						<input name="user_name" type="text" value="<%= manaId %>" />
-    					</td>
-    				</tr>
-    				<tr><th>密码</th><td><input name="user_pwd" type="text" value="132"/></td></tr>
-    				<tr><th>手机号</th><td><input name="user_mobile" type="tel" value="132"/></td></tr>
-    				<tr><th>邮箱</th><td><input name="user_email" type="email" value="125"/></td></tr>
-    			</table>
-    			<button type="button" onclick="createNew()">创建身份</button>
-    		</form>
-    	<button type="button" onclick="upImgPanel()">添加角色</button>
-    	<form enctype="multipart/form-data" id="imgP">
-	        <input type="file" name="inputFile">
-	        <input type="text" name="username"/>
-	        <button type="button" onclick="uploadImg()">上传</button>
-	    </form>
+	<div id="wrapper">
+		<div id="main">
+		<div class="inner">
+		<section>
+			<h1><%= title %></h1>
+	    	<p>hello, <%= manaId %></p>
+	    	<div>
+	    		<h3>创建信息</h3>
+		    	<button id="createBtn" onclick="createPanel()">创建</button>
+		    	<div id="createP">
+		    		<button onclick="createPanel()">关闭</button>
+		    		<form id="infoP">
+		    			<table>
+		    				<tr><th>manaId</th>
+		    					<td>
+		    						<input name="manaId" type="text" value="<%= manaId %>" />
+		    					</td>
+		    				</tr>
+		    				<tr><th>用户名</th>
+		    					<td>
+		    						<input name="user_name" type="text" value="<%= manaId %>" />
+		    					</td>
+		    				</tr>
+		    				<tr><th>密码</th><td><input name="user_pwd" type="text" value="132"/></td></tr>
+		    				<tr><th>手机号</th><td><input name="user_mobile" type="tel" value="132"/></td></tr>
+		    				<tr><th>邮箱</th><td><input name="user_email" type="email" value="125"/></td></tr>
+		    			</table>
+		    			<button type="button" onclick="createNew()">创建身份</button>
+		    		</form>
+		    	<button type="button" onclick="upImgPanel()">添加角色</button>
+		    	<form enctype="multipart/form-data" id="imgP">
+			        <input type="file" name="inputFile">
+			        <input type="text" name="username"/>
+			        <button type="button" onclick="uploadImg()">上传</button>
+			    </form>
+		    </div>
+		    <hr>
+		    <h3>列表信息</h3>
+		    <table id="userList">
+		    	<tr>
+		    		<th>id</th>
+		    		<th>name</th>
+		    		<th>操作</th>
+		    	</tr>
+		    </table>
+		    <form id="editP">
+		    	<table>
+					<tr><th>manaId</th>
+						<td><input id="edManaId" name="manaId" type="text" value="" /></td>
+					</tr>
+					<tr><th>用户名</th>
+						<td>
+							<input id="edUserName" name="user_name" type="text" value="" />
+						</td>
+					</tr>
+					<tr><th>密码</th><td><input id="edUserPwd" name="user_pwd" type="text" value=""/></td></tr>
+					<tr><th>手机号</th><td><input id="edUserMobile" name="user_mobile" type="tel" value=""/></td></tr>
+					<tr><th>邮箱</th><td><input id="edUserEmail" name="user_email" type="email" value=""/></td></tr>
+				</table>
+				<button type="button" onclick="editUpdate()">修改信息</button>
+		    </form>
+	    </section>
+	    
+	    </div>
+	    </div>
     </div>
-    <table id="userList">
-    	<tr>
-    		<th>id</th>
-    		<th>name</th>
-    		<th>操作</th>
-    	</tr>
-    	<tr>
-    		<td>1</td>
-    		<td>235</td>
-    		<th><button onclick="editInfo()">编辑</button></th>
-    	</tr>
-    </table>
-    <hr>
-    <form id="editP">
-    	<table>
-			<tr><th>manaId</th>
-				<td><input id="edManaId" name="manaId" type="text" value="" /></td>
-			</tr>
-			<tr><th>用户名</th>
-				<td>
-					<input id="edUserName" name="user_name" type="text" value="<%= manaId %>" />
-				</td>
-			</tr>
-			<tr><th>密码</th><td><input id="edUserPwd" name="user_pwd" type="text" value="132"/></td></tr>
-			<tr><th>手机号</th><td><input id="edUserMobile" name="user_mobile" type="tel" value="132"/></td></tr>
-			<tr><th>邮箱</th><td><input id="edUserEmail" name="user_email" type="email" value="125"/></td></tr>
-		</table>
-		<button type="button" onclick="editUpdate()">修改信息</button>
-    </form>
     <script>
     	var dataTemp;
     	$(function(){
@@ -90,7 +93,7 @@
     					for(var i=0;i<dataTemp.length;i++){
     						var edF = "editInfo('"+dataTemp[i]['manaId']+"')";
     						temp += '<tr><td>'+dataTemp[i]['user_name']
-    						+'</td><td>'+dataTemp[i]['manaId']+'</td>'
+    						+'</td><td>'+dataTemp[i]['user_mobile']+'</td>'
     						+'<td><button onclick="editInfo('+edF+')">编辑</button></td></tr>';
 						}
     					$("#userList").append(temp);
@@ -158,6 +161,7 @@
                 	data = JSON.parse(JSON.stringify(data));
                 	if(data.status === 200){
                 		console.log(data);
+                		window.location.reload();
                 	}else{
                 		alert(data.message);
                 	}
@@ -167,8 +171,9 @@
                 }
             });   
     	}
-    	
+    	$("#editP").hide();
     	function editInfo (val){
+    		$("#editP").show();
     		var editTemp = '';
     		for(var i=0;i<dataTemp.length;i++){
     			if(dataTemp[i]['manaId']==val){
@@ -193,6 +198,7 @@
                 	data = JSON.parse(JSON.stringify(data));
                 	if(data.status === 200){
                 		console.log(data);
+                		window.location.reload();
                 	}else{
                 		alert(data.message);
                 	}

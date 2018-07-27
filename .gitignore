@@ -6,8 +6,5 @@ manaserver/dist/
 manaserver/node_modules/
 manaserver/public/upload/
 manaserver/npm-debug.log
-manaview/css/
-manaview/fonts/
 manaview/img/
-manaview/js/
 .project

@@ -1,7 +1,9 @@
 let utilLib = {};
 
 utilLib.status = 200;
+utilLib.failStatus = 0;
 utilLib.message = "成功";
+utilLib.failMessage = "失败";
 utilLib.isEmptyObject = function (obj){
     for(var key in obj)
     {
