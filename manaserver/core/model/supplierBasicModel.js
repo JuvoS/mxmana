@@ -15,9 +15,9 @@ module.exports = {
         linkPer		: String,	//联系人
         linkPhone	: String,	//联系方式
         email		: String,	//邮箱
-        licensePic	: { type: "text"}	//营业执照图片地址
-        createTime	: Date,		//创建时间
-        updateTime	: Date		//更新时间
+        licensePic	: { type: "text"},	//营业执照图片地址
+        createTime	: { type: "text"},		//创建时间
+        updateTime	: { type: "text"}		//更新时间
    },
    func: {
    	

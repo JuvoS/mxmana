@@ -6,8 +6,8 @@ var userModel = {
         user_mobile	: String,	//手机号
         user_email  : String,	//邮箱
         manaId		: String,	//用户manaId
-        createTime	: Date,		//创建时间
-        updateTime	: Date,		//更新时间
+        createTime	: String,		//创建时间
+        updateTime	: String,		//更新时间
         open_flag	: String	//账号开启状态
    },
    func: {
