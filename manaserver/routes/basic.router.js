@@ -9,6 +9,7 @@ var patternRouter = require('./pattern');
 var productRouter = require('./product');
 var uploadRouter = require('./upload');
 var airTabRouter = require('./airTab');
+var downLoadRouter = require('./download');
 
 module.exports = {
 	index	: indexRouter,
@@ -21,5 +22,6 @@ module.exports = {
 	pattern	: patternRouter,
 	product	: productRouter,
 	upload	: uploadRouter,
-	airTab	: airTabRouter
+	airTab	: airTabRouter,
+	downLoad: downLoadRouter
 }

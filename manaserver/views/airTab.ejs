@@ -15,69 +15,101 @@
 <body>
 	<div class="container">
 		<h1><%= title %></h1>
-	    <div class="row">
+	    <div class="row" id="routerP">
 	    	
-	    	<section>
-	    		<h4>users</h4>
-	    		<table class="table">
-	    			<tr><th>tab</th><th>type</th><th>api</th></tr>
-	    			<tr>
-	    				<th>users</th><td>get</td>
-	    				<td><a href="/users/">/users/</a></td>
-	    			</tr>
-	    			<tr>
-	    				<th>users</th><td>get</td>
-	    				<td><a href="/users/list/13">/users/list/:keywords</a></td>
-	    			</tr>
-	    			<tr>
-	    				<th>users</th><td>post</td>
-	    				<td><span>/users/create</span></td>
-	    			</tr>
-	    			<tr>
-	    				<th>users</th><td>post</td>
-	    				<td><span>/users/update</span></td>
-	    			</tr>
-	    			<tr>
-	    				<th>users</th><td>get</td>
-	    				<td><a href="/users/login">/users/login</a></td>
-	    			</tr>
-	    			<tr>
-	    				<th>users</th><td>post</td>
-	    				<td><span>/users/login</span></td>
-	    			</tr>
-	    		</table>
-	    	</section>
-	    	<section>
-	    		<h4>upload</h4>
-	    		<table class="table">
-	    			<tr><th>tab</th><th>type</th><th>api</th></tr>
-	    			<tr>
-	    				<th>upload</th><td>get</td>
-	    				<td><a href="/upload/">/upload/</a></td>
-	    			</tr>
-	    			<tr>
-	    				<th>upload</th><td>post</td>
-	    				<td><span>/upload/</span></td>
-	    			</tr>
-	    			<tr>
-	    				<th>upload</th><td>get</td>
-	    				<td><a href="/upload/mul">/upload/mul</a></td>
-	    			</tr>
-	    			<tr>
-	    				<th>upload</th><td>post</td>
-	    				<td><span>/upload/cc</span></td>
-	    			</tr>
-	    			<tr>
-	    				<th>upload</th><td>get</td>
-	    				<td><a href="/upload/for">/upload/for</a></td>
-	    			</tr>
-	    			<tr>
-	    				<th>upload</th><td>post</td>
-	    				<td><span>/upload/for</span></td>
-	    			</tr>
-	    		</table>
-	    	</section>
 	    </div>
 	</div>
+	<script>
+		var tabList = [{
+			name: 'users',
+			item: [
+			{
+				type: 'get',
+				url: '/users/',
+				title: '/users/'
+			},{
+				type: 'get',
+				url: '/users/list/12',
+				title: '/users/list/:keywords'
+			},{
+				type: 'post',
+				url: '/users/create',
+				title: '/users/create'
+			},{
+				type: 'post',
+				url: '/users/update',
+				title: '/users/update'
+			},{
+				type: 'get',
+				url: '/users/login',
+				title: '/users/login'
+			},{
+				type: 'post',
+				url: '/users/login',
+				title: '/users/login'
+			}]
+		},{
+			name: 'upload',
+			item: [{
+				type: 'get',
+				url: '/upload/',
+				title: '/upload/'
+			},{
+				type: 'post',
+				url: '/upload/',
+				title: '/upload/'
+			},{
+				type: 'get',
+				url: '/upload/mul',
+				title: '/upload/mul'
+			},{
+				type: 'post',
+				url: '/upload/mul',
+				title: '/upload/mul'
+			},{
+				type: 'get',
+				url: '/upload/for',
+				title: '/upload/for'
+			},{
+				type: 'post',
+				url: '/upload/for',
+				title: '/upload/for'
+			}]
+		},{
+			name: 'download',
+			item: [{
+				type: 'get',
+				url: '/download/',
+				title: 'download'
+			}]
+		}];
+		showList();
+		function showList(){
+			var temp = '';
+			for (var key in tabList) {
+				var tabListName = tabList[key].name;
+				var tabListItem = tabList[key].item;
+				temp += '<section><h4>'+ tabListName +'</h4>';
+				
+				
+				temp += '<table class="table"><tr><th>tab</th><th>type</th><th>api</th></tr>';
+				for (var item in tabListItem) {
+					console.log(tabListItem[item].url);
+					temp += '<tr><td>'+tabListName+'</td><td>'+tabListItem[item].type+'</td>';
+					if(tabListItem[item].type == 'get'){
+						temp += '<td><a href="'+tabListItem[item].url+'">'+tabListItem[item].title+'</a></td>';
+					}
+					if(tabListItem[item].type == 'post'){
+						temp += '<td><span>'+tabListItem[item].title+'</span></td>';
+					}
+					
+				}
+				
+				temp += '</tr></table></section>';
+			}
+			
+			$("#routerP").html(temp);
+		}
+	</script>
 </body>
 </html>

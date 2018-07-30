@@ -7,6 +7,8 @@
 </head>
 <body>
 	<input type="file" name="file" id="file">
+	
+	<div id="fileShowP"></div>
     
     <script>
     	$(function(){
@@ -80,7 +82,7 @@
 
 
                                 // 这里将msg 追加到你要显示的区域  
-
+                                $("#fileShowP").append(msg);
 
 
                             }

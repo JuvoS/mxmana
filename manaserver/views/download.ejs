@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <%- include basicInit %>
+</head>
+<body>
+	<h1>DownLoad</h1>
+	<div id="downListP"></div>
+	<script>
+		getDownList();
+		function getDownList(){
+			$.ajax({
+				type:"get",
+				url:"/download/list",
+				async:true,
+				success: function(data){
+					console.log(data);
+					var temp = "";
+					temp += '<p>'+data.name+': <a href="/download/now/'+data.url+'">下载</a></p>';
+					$("#downListP").html(temp);
+				},
+				error: function(err){
+					console.log(err);
+				}
+			});
+		}
+	</script>
+</body>
+</html>
