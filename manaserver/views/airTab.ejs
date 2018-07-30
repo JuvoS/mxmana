@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
+    <style type="text/css">
+        body{
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+    <script type="text/javascript" src="/assets/js/jquery.min.js" ></script>
+</head>
+<body>
+	<div class="container">
+		<h1><%= title %></h1>
+	    <div class="row">
+	    	
+	    	<section>
+	    		<h4>users</h4>
+	    		<table class="table">
+	    			<tr><th>tab</th><th>type</th><th>api</th></tr>
+	    			<tr>
+	    				<th>users</th><td>get</td>
+	    				<td><a href="/users/">/users/</a></td>
+	    			</tr>
+	    			<tr>
+	    				<th>users</th><td>get</td>
+	    				<td><a href="/users/list/13">/users/list/:keywords</a></td>
+	    			</tr>
+	    			<tr>
+	    				<th>users</th><td>post</td>
+	    				<td><span>/users/create</span></td>
+	    			</tr>
+	    			<tr>
+	    				<th>users</th><td>post</td>
+	    				<td><span>/users/update</span></td>
+	    			</tr>
+	    			<tr>
+	    				<th>users</th><td>get</td>
+	    				<td><a href="/users/login">/users/login</a></td>
+	    			</tr>
+	    			<tr>
+	    				<th>users</th><td>post</td>
+	    				<td><span>/users/login</span></td>
+	    			</tr>
+	    		</table>
+	    	</section>
+	    	<section>
+	    		<h4>upload</h4>
+	    		<table class="table">
+	    			<tr><th>tab</th><th>type</th><th>api</th></tr>
+	    			<tr>
+	    				<th>upload</th><td>get</td>
+	    				<td><a href="/upload/">/upload/</a></td>
+	    			</tr>
+	    			<tr>
+	    				<th>upload</th><td>post</td>
+	    				<td><span>/upload/</span></td>
+	    			</tr>
+	    			<tr>
+	    				<th>upload</th><td>get</td>
+	    				<td><a href="/upload/mul">/upload/mul</a></td>
+	    			</tr>
+	    			<tr>
+	    				<th>upload</th><td>post</td>
+	    				<td><span>/upload/cc</span></td>
+	    			</tr>
+	    			<tr>
+	    				<th>upload</th><td>get</td>
+	    				<td><a href="/upload/for">/upload/for</a></td>
+	    			</tr>
+	    			<tr>
+	    				<th>upload</th><td>post</td>
+	    				<td><span>/upload/for</span></td>
+	    			</tr>
+	    		</table>
+	    	</section>
+	    </div>
+	</div>
+</body>
+</html>

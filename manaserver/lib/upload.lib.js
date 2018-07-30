@@ -2,6 +2,8 @@ var fs = require('fs');
 var multiparty = require('multiparty');
 var formidable = require('formidable');
 var fileLib = require('./file.lib');
+var dateLib = require('../lib/date.lib');
+var codeGener = require('./codeGener.lib');
 let uploadModel = {}
 
 uploadModel.upload = function (){
@@ -10,9 +12,8 @@ uploadModel.upload = function (){
 
 uploadModel.mulUpload = async function (req, res, callback){
 	var form = new multiparty.Form();
-	var dateTime = new Date();
-	var month = dateTime.getMonth()+1;
-	var fileUrl = './public/upload/'+dateTime.getFullYear()+'/'+month+'/';
+	var month = dateLib.getMonth();
+	var fileUrl = './public/upload/'+dateLib.getYear()+'/'+month+'/';
 	fileLib.dirExistH(fileUrl).then(function(){
 		form.encoding = 'utf-8';
 	    form.uploadDir = fileUrl;
@@ -20,22 +21,34 @@ uploadModel.mulUpload = async function (req, res, callback){
 	    // form.maxFields = 1000;   //设置所有文件的大小总和
 	    //上传后处理
 	    form.parse(req, function(err, fields, files) {
+	    	console.log(files);
 	        var filesTemp = JSON.stringify(files, null, 2);
 	        if(err) res.json({status: 100,content: err});
 	  
-	        var inputFile = files.inputFile[0];
+	        
+	        var inputFile = files.mulfile[0];
+	        var fileFormat = inputFile.originalFilename.split(".");
 	        var uploadedPath = inputFile.path;
 	        var dateTime = new Date();
-	        var dstPath = fileUrl+ inputFile.originalFilename;
+	        var codeGenNum = dateLib.getYear().toString()+month.toString()+codeGener.randomLenRadix(12,10);
+	        var dstPath = fileUrl+ codeGenNum+ "." + fileFormat[fileFormat.length - 1];
 	        //重命名为真实文件名
 	        fs.rename(uploadedPath, dstPath, function(err) {
 	            if(err) res.json({status: 200,content: err});
 
 	        }) 
-	        callback(dstPath);
+	        callback({
+	        	type: fileFormat[fileFormat.length-1],
+	        	originName: inputFile.originalFilename,
+	        	codeGenNum: codeGenNum,
+	        	size: inputFile.size,
+	        	url: dstPath.slice(8)
+	        });
 	    })
 	});
 }
+
+
 
 uploadModel.forUpload = function (req, res, callback){
 	var form = formidable.IncomingForm({

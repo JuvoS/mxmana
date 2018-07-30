@@ -36,6 +36,7 @@ app.use('/api/menu', basicRouter.menu);
 app.use('/api/pattern', basicRouter.pattern);
 app.use('/product', basicRouter.product);
 app.use('/upload', basicRouter.upload);
+app.use('/airtab', basicRouter.airTab);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

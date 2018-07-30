@@ -8,6 +8,7 @@ var menuRouter = require('./menu');
 var patternRouter = require('./pattern');
 var productRouter = require('./product');
 var uploadRouter = require('./upload');
+var airTabRouter = require('./airTab');
 
 module.exports = {
 	index	: indexRouter,
@@ -19,5 +20,6 @@ module.exports = {
 	menu	: menuRouter,
 	pattern	: patternRouter,
 	product	: productRouter,
-	upload	: uploadRouter
+	upload	: uploadRouter,
+	airTab	: airTabRouter
 }

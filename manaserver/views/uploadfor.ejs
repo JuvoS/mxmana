@@ -5,7 +5,7 @@
     <title><%= title %></title>
 </head>
 <body>
-	<form method='post' action='/upload/cc' enctype='multipart/form-data'>
+	<form method='post' action='/upload/for' enctype='multipart/form-data'>
         <input type="file" name="myfile" id="myfile" mutiple/>
     	<input type="submit" value="上传" id="submit"/>
     </form>
@@ -68,7 +68,7 @@
                 oldUploaded=curUploaded;
             }
         },1000);
-        xhr.open("post", "/upload/cc", true);
+        xhr.open("post", "/upload/for", true);
         xhr.onload = function (e) {
 	        if(this.status == 200){
 	           console.log(this.response);
