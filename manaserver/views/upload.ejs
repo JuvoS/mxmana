@@ -20,7 +20,10 @@
     			url:"/upload/list",
     			async:true,
     			success: function(data){
-    				console.log(data);
+    				var temp = "";
+    				for (var key in data) {
+    					console.log(data[key]);
+    				}
     			},
     			error: function(err){
     				console.log(err);

@@ -48,5 +48,15 @@ codeGener.generCode = function(){
 	return 'MA'+Y+this.randomLenRadix(4,10)+M+D+this.randomLenRadix(6,10)+h+m;
 }
 
+codeGener.generProCode = function(){
+	var date = new Date();
+    var Y = date.getFullYear();
+    var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1);
+    var D = date.getDate();
+    var h = date.getHours();
+    var m = (date.getMinutes() < 10 ? '0'+(date.getMinutes()) : date.getMinutes());
+	return 'MR'+Y+this.randomLenRadix(6,10)+M+D+this.randomLenRadix(6,10)+h+m;
+}
+
 
 module.exports = codeGener;
