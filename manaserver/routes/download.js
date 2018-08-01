@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/list', function(req, res, next) {
-	var url = '201807198824120727.png';
+	var url = '201807198824120727.zip';
   res.json({name:'001',url:url});
 });
 
