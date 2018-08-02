@@ -7,6 +7,9 @@ const jsonFun = require('../lib/json.lib.js');
 let userModel = require('../core/model/userModel');
 var mysql  = require('mysql');  
 
+router.get('/', function (req, res, next){
+	res.render('pattern', { title: 'Pattern' , localUrl: jsonFun.localUrl });
+});
 //find
 router.get('/all', function (req, res, next) {
 	var modelInfo = {

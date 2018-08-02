@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <style type="text/css">
+        body{
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+    <%- include basicInit %>
+</head>
+<body>
+    <div class="container">
+    	<h1><%= title %></h1>
+    	<p>hello, <%= title %></p>
+    	
+    	<section>
+    		<h4>方案</h4>
+    		<div class="row">
+    			<button>智能照明系统</button><button>能源管理系统</button><button>情景控制系统</button>
+    			<button>智能照明系统</button><button>智能照明系统</button><button>智能照明系统</button>
+    		</div>
+    	</section>
+    	
+    	<section>
+    		<h4>方案/能源管理系统</h4>
+    		<div class="row">
+    			<table>
+    				<tr><th>name</th><th>content</th><th>from</th></tr>
+    				<tr><td>XXX能源管理系统</td><td>很多种颜色的灯的智能能源管理系统</td><td>MN</td><td><a>GO</a></td></tr>
+    				<tr><td>智能能源管理系统</td><td>单色的灯的智能能源管理系统</td><td>MN</td><td><a>GO</a></td></tr>
+    				<tr><td>筒    灯能源管理系统</td><td>圆形的灯的智能能源管理系统</td><td>MOR</td><td><a>GO</a></td></tr>
+    			</table>
+    		</div>
+    	</section>
+    	
+    	<section>
+    		<h4>方案/能源管理系统/智能能源管理系统</h4>
+    		<div class="row">
+    			<table>
+    				<tr><th>name</th><th>content</th><th>from</th></tr>
+    				<tr><td>智能开关</td><td>控制系统的开关</td><td>MN</td><td><a>GO</a></td></tr>
+    				<tr><td>发光灯</td><td>单色的灯</td><td>MN</td><td><a>GO</a></td></tr>
+    				<tr><td>筒    灯</td><td>圆形的灯</td><td>MOR</td><td><a>GO</a></td></tr>
+    				<tr><td>音    响</td><td>美丽的音乐</td><td>MOR</td><td><a>GO</a></td></tr>
+    			</table>
+    		</div>
+    	</section>
+    	
+    	<section>
+    		<h4>方案/能源管理系统/智能能源管理系统/智能开关</h4>
+    		<div class="row">
+    			<table>
+	    			<tr><td>name:</td><td><input value="智能开关"/></td></tr>
+	    			<tr><td>content:</td><td><textarea>控制系统的开关</textarea></td></tr>
+	    			<tr><td>from:</td><td><input value="MN"/></td></tr>
+	    			<tr><td><button>更新</button></td><td><button>确定</button></td></tr>
+    			</table>
+    		</div>
+    	</section>
+
+    </div>
+    <script>
+
+
+    </script>
+</body>
+</html>

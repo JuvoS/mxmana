@@ -7,6 +7,7 @@ var installRouter = require('./install');
 var menuRouter = require('./menu');
 var patternRouter = require('./pattern');
 var productRouter = require('./product');
+var solutionRouter = require('./solution');
 var uploadRouter = require('./upload');
 var airTabRouter = require('./airTab');
 var downLoadRouter = require('./download');
@@ -21,6 +22,7 @@ module.exports = {
 	menu	: menuRouter,
 	pattern	: patternRouter,
 	product	: productRouter,
+	solution: solutionRouter,
 	upload	: uploadRouter,
 	airTab	: airTabRouter,
 	downLoad: downLoadRouter

@@ -10,4 +10,6 @@ jsonFun.jsonAccessFun = function(req, res, next){
     res.header("Content-Type", "application/json;charset=utf-8");
     next();
 }
+jsonFun.localUrl = 'http://127.0.0.1:3322';
+
 module.exports = jsonFun;

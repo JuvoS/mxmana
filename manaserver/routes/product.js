@@ -10,7 +10,7 @@ let productModel = require('../core/model/productModel');
 
 //tab
 router.get('/', function (req, res, next){
-	res.render('product', { title: 'Product' , localUrl: 'http://127.0.0.1:3322' });
+	res.render('product', { title: 'Product' , localUrl: jsonFun.localUrl });
 });
 
 //list
