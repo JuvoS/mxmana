@@ -1,0 +1,33 @@
+.header{
+    background-color: #FFFFFF;
+}
+.login-wrap{
+    background: #3494E6;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #EC6EAD, #3494E6);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #EC6EAD, #3494E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.plugins-tips{
+    background: #f2f2f2;
+}
+.plugins-tips a{
+    color: #3494e6;
+}
+.el-upload--text em {
+    color: #3494e6;
+}
+.pure-button{
+    background: #3494e6;
+}
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+    background-color: #3494e6 !important;
+    border-color: #3494e6 !important;
+}
+.tags-li.active {
+    border: 1px solid #3494e6;
+    background-color: #3494e6;
+}
+.collapse-btn:hover{
+    background: #3494e6;
+    color: #FFFFFF;
+}

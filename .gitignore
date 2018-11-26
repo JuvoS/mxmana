@@ -2,6 +2,9 @@
 mana/dist/
 mana/node_modules/
 mana/npm-debug.log
+manasite/dist/
+manasite/node_modules/
+manasite/npm-debug.log
 manaserver/dist/
 manaserver/node_modules/
 manaserver/public/upload/
