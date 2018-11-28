@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+		<link rel="stylesheet" href="assets/base/jquery.flex-images.css" />
+		<link rel="stylesheet" href="assets/base/bootstrap.min.css" />
+		<link rel="stylesheet" href="assets/base/reset.css" />
+		<link rel="stylesheet" href="assets/base/public_v1.3.css" />
+		<link rel="stylesheet" href="assets/base/search.css" />
+	</head>
+
+	<body>
+		<!-- 分类页导航栏 -->
+		<div class="clearfix header-info nav-search">
+    <a href="/" class="btos-logo">
+        <i class="iconfont icon-baotuhaiwailogo"></i>
+    </a>
+    <div class="clearfix btos-search">
+        <div class="classify-drop-wrap">
+            <div class="classify-drop">
+                <div class="drop-content">
+                    <span class="selected-label">摄影图</span>
+                    <i class="icon-triangle"></i>
+                </div>
+            </div>
+            <div class="drop-list-wrap">
+                <ul class="classify-drop-list" data-resource="photo">
+                                            <li data-label="摄影图" data-resource="photo" data-holder="50w+高清摄影图">摄影图</li>
+                                            <li data-label="视频" data-resource="video" data-holder="14w+精选视频">视频</li>
+                                            <li data-label="插画配图" data-resource="chahua" data-holder="10w+插画配图">插画配图</li>
+                                            <li data-label="矢量图" data-resource="vector" data-holder="20w+矢量图">矢量图</li>
+                                            <li data-label="音频" data-resource="audio" data-holder="10w+优质音频">音频</li>
+                                    </ul>
+            </div>
+        </div>
+
+        <div class="clearfix search-drop">
+            <input class="searchInput" type="text" placeholder="50w+高清摄影图" value="">
+            <a href="javascript:;" class="search-btn"><i class="icon-search"></i></a>
+            <div class="drop" style="display:none">
+                <p>热门搜索 <a href="javascript:;" class="updateHotKeywords"><i class="icon-change"></i> 换一换</a></p>
+                <div class="label-a sHotKeywords"></div>
+                <p class="sTitle">搜索历史 <a href="javascript:;" class="clearHistory"><i class="icon-delete"></i>清空历史</a></p>
+                <div class="label-a sHistory"></div>
+            </div>
+        </div>
+    </div>
+    <div class="home-nav fr">
+        <div class="right-item vip-item">
+            <a href="https://haiwai.ibaotu.com/vip" target="_blank">
+                <span>个人VIP</span>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-new"></use>
+                </svg>
+                </a><div class="vip-drop-list"><a href="https://haiwai.ibaotu.com/vip" target="_blank">
+                    <ul>
+                        <li>
+                            <i class="icon-drop-dl"></i>
+                            <span>素材海量下载</span>
+                        </li>
+                        <li>
+                            <i class="icon-drop-hd"></i>
+                            <span>畅享高清大图</span>
+                        </li>
+                        <li>
+                            <i class="icon-drop-money"></i>
+                            <span>低至0.19元/天</span>
+                        </li>
+                    </ul>
+                    </a><a href="https://haiwai.ibaotu.com/payment" target="_blank" class="buy-vip gradient-hor-gold graHover">立即开通个人VIP</a>
+                </div>
+
+            
+        </div>
+        <div class="right-item vip-item com">
+            <a href="https://haiwai.ibaotu.com/enterprise/vip" target="_blank">
+                <span>企业VIP</span>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-hot1"></use>
+                </svg>
+                </a><div class="vip-drop-list"><a href="https://haiwai.ibaotu.com/enterprise/vip" target="_blank">
+                    <ul>
+                        <li>
+                            <div class="icon-wrap">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-qiye-hailiangxiazai"></use>
+                                </svg>
+                            </div>
+                            <span>高清大图海量下载</span>
+                        </li>
+                        <li>
+                            <div class="icon-wrap">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-qiye-shangyong"></use>
+                                </svg>
+                            </div>
+                            <span>企业授权商用无忧</span>
+                        </li>
+                        <li>
+                            <div class="icon-wrap">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-qiye-VIP"></use>
+                                </svg>
+                            </div>
+                            <span>买即送包图企业VIP</span>
+                        </li>
+                    </ul>
+                    </a><a href="https://haiwai.ibaotu.com/enterprise/payment" target="_blank" class="buy-vip gradient-hor-gold graHover">立即开通企业VIP</a>
+                </div>
+            
+        </div>
+        
+            
+
+                
+            
+        
+
+        
+        <div class="right-item">
+            <a href="javascript:;" class="introduce-icont actionShowIntroVideo">
+                <i></i>
+            </a>
+        </div>
+        <div class="right-item user-drop">
+                            <a href="javascript:;" class="login-pop-click">Hi,请登录</a>
+                    </div>
+    </div>
+</div>
+
+		<div class="container-fluid body-contains">
+        <!-- 新增的内容 start -->
+        <p class="keyword">全部</p>
+        
+        <!-- 面包屑导航 -->
+        <div class="crumbs-labels">
+            <span>当前位置</span>
+            <i class="iconfont icon-you"></i>
+            <a href="https://haiwai.ibaotu.com/photos">摄影图</a>
+        </div>
+        <!-- 分类标签 -->
+        <div class="classify-labels">
+            <div class="labels-wrap clearfix tagBox">
+                <span>筛选：</span>
+                <div class="right-wrap" style="height: 44px;">
+                    <a href="javascript:;" class="classify tag active" data-id="0">不限</a>
+                                            <a href="javascript:;" class="classify tag " data-id="89">实物拍摄</a>
+                                            <a href="javascript:;" class="classify tag " data-id="90">商务办公</a>
+                                            <a href="javascript:;" class="classify tag " data-id="91">人物情感</a>
+                                            <a href="javascript:;" class="classify tag " data-id="92">节日假日</a>
+                                            <a href="javascript:;" class="classify tag " data-id="93">自然美景</a>
+                                            <a href="javascript:;" class="classify tag " data-id="94">风光建筑</a>
+                                            <a href="javascript:;" class="classify tag " data-id="95">运动健身</a>
+                                            <a href="javascript:;" class="classify tag " data-id="97">车辆交通</a>
+                                            <a href="javascript:;" class="classify tag " data-id="98">科学与健康</a>
+                                            <a href="javascript:;" class="classify tag " data-id="99">背景素材</a>
+                                            <a href="javascript:;" class="classify tag " data-id="100">教育文化</a>
+                                            <a href="javascript:;" class="classify tag " data-id="101">潮流时尚</a>
+                                    </div>
+                <div class="more-btn" style="display: none;">
+                    <span class="more">更多</span>
+                    <i class="iconfont icon-sanjiaoxing"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="screen">
+            <a href="https://haiwai.ibaotu.com/photos?s=all&amp;page=1" class="active">人气排行</a>
+            <a href="https://haiwai.ibaotu.com/photos?s=dl&amp;page=1" class="">热门下载</a>
+            <a href="javascript:;" class="active actionSetMode" data-mode="waterfall" style="float: right;">瀑布流浏览</a>
+        </div>
+
+        <!-- 新增的内容 end -->
+        <div class="datalist">
+            <ul class="imgshow flex-images">
+                                                            <li class="item" data-w="1000" data-h="667" style="width: 420px; height: 280px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/04/32/313c4ebb6e83a4a695274cb986231b14.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/810983/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="810983" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="810983" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">海桥与美丽的天空相映，插画</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 420px; height: 280px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/05/34/d20412dfbcf7c5d4c1fcf86badd82fc6.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/810942/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="810942" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="810942" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">人在外空的船上用彩云、插图</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 408px; height: 280px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/01/31/69e81084dfe88ca3e8627c2f31633608.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/801047/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="801047" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="801047" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">两只手把太阳系连在一起</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 420px; height: 280px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/07/34/4a541509d75a3d3de43efb7364775f61.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/810941/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="810941" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="810941" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">男人注视着城市，画着插图</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 420px; height: 280px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/08/22/b9efd12bc2efc0765ca1d684895a91bc.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/6150581/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="6150581" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="6150581" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">热带森林在雨天。有雨和雾的绿色丛林景观。在哥伦比亚的圣马尔塔，森林山和美丽的大树。绿色木材,雨天。在南美洲观鸟。</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 408px; height: 280px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/10/51/f6e3d4ddf4b93d60db1bfa5d2bba5ae5.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/1539168/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="1539168" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="1539168" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">一群年轻的多民族朋友的背影——快乐，夏天，友谊的概念</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="758" style="width: 323px; height: 245px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/01/75/9d08bc8020f4015f8700b74b58b8075e.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/533822/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="533822" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="533822" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">美丽的湖景与生机勃勃的夕阳。长时间曝光的风景。</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 367px; height: 245px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/06/92/c3c671db054cf8316c4b71e8cad515c5.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/759899/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="759899" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="759899" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">黎明时分，沙漠中被阳光照射的沙丘</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="428" style="width: 558px; height: 245px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/10/15/c6277337727ec1cb31d15055067dcb6f.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/1752747/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="1752747" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="1752747" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">办公桌上有小玩意和办公用品。电脑键盘，智能手机，住房项目以及各种各样的工作场所。平的。工作室以白色木制背景拍摄。</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 420px; height: 280px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/01/30/32c88304694b90f3143a1ec7af301cbf.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/1761620/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="1761620" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="1761620" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">在外面的田野里抱着狗和狗的迷人的年轻女子。</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 420px; height: 280px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/01/83/5322faf89b5f32ae7353a166cfb566a8.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/5714555/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="5714555" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="5714555" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">多岩石的罗浮敦群岛海滨，天空壮观。海景、挪威</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 408px; height: 280px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/03/67/e97501a44bf4794e210539956767c98a.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/5714600/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="5714600" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="5714600" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">男游客坐在悬崖上。美丽的高山风景，罗浮敦群岛，莱茵，挪威。</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="652" style="width: 425px; height: 277px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/05/70/74177366a54c688355a053e85a0b1eb6.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/800956/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="800956" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="800956" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">一棵有美丽空间背景的单株树。</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 416px; height: 277px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/04/55/7c18d893604a2368e903ef39004b17c6.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/826129/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="826129" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="826129" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">几何设计屋顶阳台与城市景观背景</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="662" style="width: 407px; height: 277px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/01/58/43e818d62b88ebaf99676449b462245e.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/247512/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="247512" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="247512" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">冬天树上结霜</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="673" style="width: 393px; height: 264px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/09/13/9feebc73dd9a8cf8a856a6a2cb60707f.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/810830/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="810830" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="810830" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">一对年轻的夫妇手牵着手站在银河星系，画着插图</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="662" style="width: 399px; height: 264px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/06/18/23631a6e3ac076bd15c16a8fa06ca929.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/247531/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="247531" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="247531" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">冬天树上结霜</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="563" style="width: 456px; height: 264px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/01/27/05bb2facfac05ac2961db49b00d8fbe3.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/803869/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="803869" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="803869" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">阿尔卑斯山脉白云石山脉。意大利</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 429px; height: 286px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/10/94/a31741c5f993cf13090888ff6cc5892c.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/810881/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="810881" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="810881" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">人走到抽象多彩的山水，插画</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="711" style="width: 402px; height: 286px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/09/77/10c66c73950d889bed3a05ff3daacc93.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/5714409/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="5714409" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="5714409" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">日落时分的码头和大海</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 417px; height: 286px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/02/37/29ded6062f28da200e09cf82b7b05b8a.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/564364/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="564364" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="564364" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">神奇的海上日出</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 420px; height: 280px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/09/86/1ebae8736bc73c6adb020bc57f4dbcdd.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/1673478/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="1673478" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="1673478" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">握手的业务合作伙伴</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 420px; height: 280px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/09/45/f422eb078fe79c243ed61ba432643448.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/1752667/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="1752667" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="1752667" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">智能手机、耳机、一杯水和放在办公桌上的眼镜。办公桌上有小玩意和办公用品。工作室以木制背景拍摄。平放，空复制空间。</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 408px; height: 280px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/10/42/457248961e16bc7b65e4d1568962df1c.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/239541/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="239541" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="239541" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">业务合作伙伴在工作场所与业务对象握手的图像</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="694" data-h="1000" style="width: 221px; height: 318px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/04/31/6d325eb05396cb33da4f0708b46913d8.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/810955/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="810955" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="810955" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">一个红色的男人拿着电话和其他人站在一起，人群中独一无二的人，插画</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="597" style="width: 533px; height: 318px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/04/18/0c124965796add7e49afdf1fd5ecb6ad.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/7850794/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="7850794" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="7850794" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">一片广阔的土地上的一幢老农场建筑</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="633" style="width: 494px; height: 318px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/03/84/11c2579c1ccc854954f157debb9ea28c.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/800981/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="800981" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="800981" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">美丽的有星星的蓝色和粉红色星云。</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="669" style="width: 419px; height: 280px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/03/25/2f439e3489c8a0f10d91b9fa15bd722d.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/802507/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="802507" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="802507" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">粉红色的樱花开着蓝色的天空</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 420px; height: 280px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/07/89/9c3ede3bdee8564bd7bff7dba6b50f3a.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/1776972/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="1776972" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="1776972" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">摘要背景纹理由游戏面团的特写制作而成。</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 409px; height: 280px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/01/73/7bb8d23e78d310a57c2f3ce4386276b6.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/810938/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="810938" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="810938" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">幻想的风景与房子在树干。插图绘画</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 420px; height: 280px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/04/63/1cf5c302bf0495dae5020bb63a1662a1.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/246613/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="246613" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="246613" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">在拉脱维亚黑暗神秘的森林里，晨雾弥漫</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 420px; height: 280px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/05/97/722ea2a1416a096946dc4db8a30250b8.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/5569049/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="5569049" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="5569049" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">商务人士在午休时间握手</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 408px; height: 280px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/07/84/3ca00a6fd144333698da2c3d410d71e7.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/826663/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="826663" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="826663" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">澳大利亚西部海顿的夜空。</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="737" style="width: 392px; height: 289px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/07/26/ac5887cab6f06a6ab35c57ccbec5b784.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/539823/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="539823" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="539823" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">秋天的美丽风景，多雾的森林，落叶和老树干。波兰森林的晚秋。宁静的色彩斑斓的场景。</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 433px; height: 289px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/03/98/91f71847ac8198f728f2eb061d5bfb45.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/1411379/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="1411379" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="1411379" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">年轻快乐的朋友们举着手站在汽车旁的背影</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 423px; height: 289px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/09/32/144680184b7453856321ab52b79ba558.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/526539/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="526539" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="526539" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">平静湖面上美丽的晚霞。湖岸五彩缤纷、生机勃勃的芦苇景观。宁静的风景可以作为背景</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="665" style="width: 401px; height: 267px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/09/22/2042a7d466b6ff581480645de3b8e9ae.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/789499/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="789499" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="789499" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">一个女人在登山和登山时的剪影</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="661" style="width: 403px; height: 267px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/06/56/b49c501a55c32ed47b826d7f59211d54.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/826413/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="826413" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="826413" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">成功，领导，成就和人的概念-在天空和阳光的背景下，山顶上挂着旗帜的年轻人的剪影</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="584" style="width: 444px; height: 267px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/06/95/d28cac8b5fc852d83bc2347fe07fa5dc.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/826519/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="826519" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="826519" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">吉隆坡市的夜景，在水中和木板上有令人惊叹的倒影</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="548" style="width: 692px; height: 380px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/08/79/e16d4784cb4b40fd6e65e034c33f2487.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/826797/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="826797" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="826797" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">现代城市的摩天大楼全景</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 566px; height: 380px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/01/14/84ccedb4afd17197a3770d39e08fdde8.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/239248/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="239248" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="239248" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">成功商人与附近的合作伙伴达成协议后握手的照片</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 569px; height: 380px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/06/25/bf7392f0f40e27c7f7808374c3c4ef60.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/810970/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="810970" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="810970" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">奇幻森林中有五颜六色的植物和花朵，插画</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="548" style="width: 689px; height: 380px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/05/61/2cd23e42284f7d6a4a357f61ea52f3e9.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/826998/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="826998" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="826998" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">智慧城市与无线通信网络，抽象的图像视觉，物联网</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 434px; height: 289px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/07/03/0c477b2005512e7ae3a898ef983044e5.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/826142/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="826142" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="826142" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">国际商务概念与商人在城市天际线背景与网络在地图和阳光</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="658" style="width: 440px; height: 289px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/08/96/b9ef6f84a1e41225c6e3576f96133b43.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/565566/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="565566" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="565566" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">滑翔伞在海面上翱翔</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="750" style="width: 374px; height: 289px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/10/71/66d0b0fc12d7040d85465d413d11c72d.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/120888/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="120888" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="120888" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">抽象的红色背景的134</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="494" style="width: 725px; height: 358px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/07/72/b1caac8ebb18abb0ba5d4cf1164a6738.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/109954/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="109954" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="109954" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">Food-lime堆栈</p></div>
+                            </a>
+                        </li>
+                                            <li class="item" data-w="1000" data-h="667" style="width: 533px; height: 358px;">
+                            <a href="javascript:;" class="img"><img src="//image.ibaotu.com/sb/previews/08/05/315c01608deaac61268b08a80c829a87.jpg?ufopmogr3/quality/50" alt=""></a>
+                            <a href="https://haiwai.ibaotu.com/photos/110174/detail" target="_blank" class="imgmask">
+                                <div class="download" data-id="110174" data-type="photo"><i class="icon-download"></i>免费下载</div>
+                                <div class="collect action-star " data-id="110174" data-type="photo"><i class="icontfont icon-shoucang1"></i></div>
+                                <div class="titmask"><p href="javascript:;" class="title">星际战争背景</p></div>
+                            </a>
+                        </li>
+                                                </ul>
+
+            
+                            <div class="pagination-box">
+                    <ul class="bt-pagination"><li class="page-item disabled"><span class="page-link">上一页</span></li><li class="page-item active"><span class="page-link">1</span></li><li class="page-item"><a class="page-link" href="/photos?page=2">2</a></li><li class="page-item"><a class="page-link" href="/photos?page=3">3</a></li><li class="page-item"><a class="page-link" href="/photos?page=4">4</a></li><li class="page-item"><a class="page-link" href="/photos?page=5">5</a></li><li class="page-item"><a class="page-link" href="/photos?page=6">6</a></li><li class="page-item disabled"><span class="page-link">...</span></li><li class="page-item"><a class="page-link" href="/photos?page=624">624</a></li><li class="page-item"><a class="page-link" href="/photos?page=625">625</a></li><li class="page-item"><a class="page-link" href="/photos?page=2" rel="next">下一页</a></li></ul>
+                </div>
+            
+            <div id="data-loading" class="loading" style="display: none"><i class="icon-load"></i> 正在加载</div>
+            <div id="data-ending" class="loading" style="display: none;">没有更多啦~</div>
+        </div>
+    </div>
+
+		<!-- 底部栏 -->
+		<footer class="container-fluid btos-footer">
+    <ul class="row">
+        <li class="col-md-2"><a href="javascript:;" class="btos-logo"></a></li>
+        <li class="col-md-2"><a href="https://haiwai.ibaotu.com/about/index?active=1" target="_blank">关于包图海外Beta版</a><p>包图网-Copyright ©2018 包图网 </p></li>
+        <li class="col-md-2"><a href="https://haiwai.ibaotu.com/about/index?active=2#about_contact" target="_blank">联系我们</a></li>
+        <li class="col-md-2"><a href="https://haiwai.ibaotu.com/about/index?active=3#about_opinion" target="_blank">意见反馈</a></li>
+        <li class="col-md-2"><a href="javascript:;" class="qy_udesk">企业用图咨询</a></li>
+        <li class="col-md-2"><a href="https://ibaotu.com/" target="_blank">包图主站</a></li>
+    </ul>
+</footer>
+
+<div class="btos-flright">
+    <a href="https://haiwai.ibaotu.com/about/index?active=3#about_opinion" target="_blank" class="opintion"><i class="icon-sug"></i><span>意见反馈</span></a>
+    <a href="javascript:;" class="contact udesk_kefu"><i class="icon-kf"></i><span>在线客服</span></a>
+    <a href="javascript:;" class="top"><i class="icon-top"></i><span>返回顶部</span></a>
+</div>
+
+<style>
+    .mobile-new-lore .slide-veri-box{
+        background: none;
+    }
+    .nc_scale{
+        height: 38px;
+    }
+    .nc-container .nc_scale span{
+        height: 38px;
+        line-height: 38px;
+    }
+    .nc-container .nc_scale .scale_text{
+        line-height: 38px;
+    }
+
+</style>
+
+<div class="btos-popbox login-father-level" style="display:none;">
+    <div class="mask"></div>
+    <!-- 选择登录方式 -->
+    <div class="pop-contains login-pop" id="login_ways" style="display: none;">
+        <a href="javascript:;" class="closebtn" onclick="$(this).parent().parent().hide();"><i class="icon-close"></i></a>
+        <div class="content">
+            <i class="icon-logo"></i>
+            <p class="ways">请选择登录方式</p>
+            <div class="list">
+                <a href="javascript:;" class="waysqq login-qq-i"><span><i></i></span> QQ登录</a>
+                <a href="javascript:;" class="wayswechat login-ww-i"><span><i></i></span> 微信登录</a>
+                <a href="javascript:;" class="waysphone login-phone-i" onclick="$('#login_ways').hide();$('#login_phone').show()"><span><i></i></span> 手机登录</a>
+            </div>
+        </div>
+    </div>
+    <!-- if 手机登录 -->
+    <div class="pop-contains login-pop s_login_c" id="login_phone" style="display: none;">
+        <a href="javascript:;" class="closebtn" onclick="$(this).parent().parent().hide();"><i class="icon-close"></i></a>
+        <div class="content">
+            <i class="icon-logo"></i>
+            <ul class="ph-info">
+                <li class="cell">
+                    <i class="cell-txt"></i>
+                    <input type="text" class="login_phone_input" maxlength="11" placeholder="请输入手机号">
+                    <b class="login_Text">亲，您的手机号码不对哟</b>
+                </li>
+                <li class="yzm">
+                    <div class="slider-yzm" id="login-slide-div"></div>
+
+                    <input type="hidden" id="login-slide-div-sig" name="sig">
+                    <input type="hidden" id="login-slide-div-token" name="token">
+                    <input type="hidden" id="login-slide-div-scene" name="scene">
+                    <input type="hidden" id="login-slide-div-csessionid" name="csessionid">
+                </li>
+                <li class="password">
+                    <i></i>
+                    <input type="text" id="mo-veri" class="login_code_input" maxlength="6" placeholder="请输入验证码">
+                    <a href="javascript:;" class="words ver-btn" style="color: #ff9100">发送验证码</a>
+                    <b class="login_Text ">亲，请输入正确的验证码哟</b>
+                </li>
+            </ul>
+            <a href="javascript:;" class="loginbtn mob-login-sub">登录</a>
+            <p class="other-way" onclick="$('#login_ways').show();$('#login_phone').hide()">使用第三方账号登录  <a href="javascript:;"><i class="icon-wx"></i></a><a href="javascript:;"><i class="icon-qq"></i></a></p>
+        </div>
+    </div>
+
+    <!-- if 手机号绑定QQ或者微信 -->
+    <div class="pop-contains login-pop bd_login_x" id="binding_phone" style="display: none">
+        <a href="javascript:;" class="closebtn" onclick="$(this).parent().parent().hide();"><i class="icon-close"></i></a>
+        <div class="content">
+            <i class="icon-logo"></i>
+            <p class="ways">请选择登录账号</p>
+            <div class="binding">
+                <p>
+                    亲，为了您的账号安全，您的手机号只能绑定一个包图账号。<br> 请选择绑定：
+                </p>
+                <div class="bindwhich">
+                    <a href="javascript:;" class="account-bind-info-0 choice-binding-phone" data-id=""><img src="" alt=""><span>QQ名字</span> <b>609966363</b></a>
+                    <a href="javascript:;" class="account-bind-info-1 choice-binding-phone" data-id=""><img src="" alt=""><span>微信名字</span><b>609966363</b></a>
+                </div>
+
+                <a href="javascript:;" class="fr useqq" onclick="$('#login_ways').show();$('#binding_phone').hide()">使用QQ/微信注册</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+	</body>
+
+</html>

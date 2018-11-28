@@ -7,138 +7,85 @@
             <p>单页删除</p>
         </div>
 
+        <el-table
+    ref="multipleTable"
+    :data="listData"
+    tooltip-effect="dark"
+    style="width: 100%"
+    @selection-change="handleSelectionChange"
+    :default-sort = "{prop: 'date', order: 'descending'}"
+    >
+    <el-table-column
+      type="selection"
+      width="55">
+    </el-table-column>
+    <el-table-column
+      label="日期"
+      sortable
+      width="120">
+      <template slot-scope="scope">{{ scope.row.date }}</template>
+    </el-table-column>
+    <el-table-column
+      prop="name"
+      label="姓名"
+      width="120">
+    </el-table-column>
+    <el-table-column
+      prop="address"
+      label="地址"
+      :formatter="formatter"
+      show-overflow-tooltip>
+    </el-table-column>
+  </el-table>
+
+<div style="margin-top: 20px">
+    <el-button @click="toggleSelection([listData[1], listData[2]])">切换第二、第三行的选中状态</el-button>
+    <el-button @click="toggleSelection()">取消选择</el-button>
+  </div>
+
     </div>
 </template>
 
 <script>
     export default {
-        name: 'baseform',
+        name: 'singleList',
         data: function(){
             return {
-                options:[
-                    {
-                        value: 'guangdong',
-                        label: '广东省',
-                        children: [
-                            {
-                                value: 'guangzhou',
-                                label: '广州市',
-                                children: [
-                                    {
-                                        value: 'tianhe',
-                                        label: '天河区'
-                                    },
-                                    {
-                                        value: 'haizhu',
-                                        label: '海珠区'
-                                    }
-                                ]
-                            },
-                            {
-                                value: 'dongguan',
-                                label: '东莞市',
-                                children: [
-                                    {
-                                        value: 'changan',
-                                        label: '长安镇'
-                                    },
-                                    {
-                                        value: 'humen',
-                                        label: '虎门镇'
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        value: 'hunan',
-                        label: '湖南省',
-                        children: [
-                            {
-                                value: 'changsha',
-                                label: '长沙市',
-                                children: [
-                                    {
-                                        value: 'yuelu',
-                                        label: '岳麓区'
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ],
-                form: {
-                    name: '',
-                    region: '',
-                    date1: '',
-                    date2: '',
-                    delivery: true,
-                    type: ['步步高'],
-                    resource: '小天才',
-                    desc: '',
-                    options: []
-                }
+                listData: [],
+                multipleSelection: []
             }
         },
         created() {
-            this.getData();
+            // this.getListData();
         },
         methods: {
-          
+           getListData(){
+               this.$axios.get('static/base/pagelist.json').then((res) => {
+                  this.listData = res.data;
+                })
+           },
+           onSubmit(){
+
+           },
+           toggleSelection(rows) {
+                if (rows) {
+                rows.forEach(row => {
+                    this.$refs.multipleTable.toggleRowSelection(row);
+                });
+                } else {
+                this.$refs.multipleTable.clearSelection();
+                }
+            },
+            handleSelectionChange(val) {
+                this.multipleSelection = val;
+            },
+            formatter(row, column) {
+                return row.address;
+            }
         }
     }
 </script>
 
 <style scoped="">
 
-  .el-col {
-    border-radius: 4px;
-    margin-bottom: 10px;
-  }
-  .bg-purple-dark {
-    background: #99a9bf;
-  }
-  .bg-purple {
-    background: #d3dce6;
-  }
-  .bg-purple-light {
-    background: #e5e9f2;
-  }
-  .grid-content {
-    border-radius: 4px;
-    min-height: 36px;
-  }
-  .row-bg {
-    padding: 10px 0;
-    background-color: #f9fafc;
-  }
-  
-  .avatar-uploader .el-upload {
-    border: 1px dashed #d9d9d9;
-    border-radius: 6px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-  }
-  .avatar-uploader .el-upload:hover {
-    border-color: #409EFF;
-  }
-  .avatar-uploader-icon {
-    font-size: 28px;
-    color: #8c939d;
-    width: 178px;
-    height: 178px;
-    line-height: 178px;
-    text-align: center;
-  }
-  .avatar {
-    width: 178px;
-    height: 178px;
-    display: block;
-  }
-  .pic-pool {
-  	width: 40px;
-  	height: 30px;
-  	overflow: hidden;
-  }
 </style>

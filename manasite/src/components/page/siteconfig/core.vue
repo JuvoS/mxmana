@@ -1,14 +1,20 @@
 <template>
     <div>
-    	<i class="iconfont icon-account"></i>
-        <p>支付宝账户</p>
-        <p>支付宝安全验证码</p>
-        <p>QQ登录组件AppID</p>
-        <p>QQ登录组件AppKey</p>
-        <p>微信登录组件AppID</p>
-        <p>微信登录组件AppKey</p>
-        <p>微博登录组件AppID</p>
-        <p>微博登录组件AppKey</p>
+
+    <el-form ref="coreConfig" :model="coreConfig" label-width="100px">
+        <el-form-item label="支付宝账户"><el-input v-model="coreConfig.alipayID"></el-input></el-form-item>
+        <el-form-item label="支付宝安全验证码"><el-input v-model="coreConfig.alipayVerifyCode"></el-input></el-form-item>
+        <el-form-item label="QQ登录组件AppID"><el-input v-model="coreConfig.QQLoginAppID"></el-input></el-form-item>
+        <el-form-item label="QQ登录组件AppKey"><el-input v-model="coreConfig.QQLoginAppKey"></el-input></el-form-item>
+        <el-form-item label="微信登录组件AppID"><el-input v-model="coreConfig.WechatLoginAppID"></el-input></el-form-item>
+        <el-form-item label="微信登录组件AppKey"><el-input v-model="coreConfig.WechatLoginAppKey"></el-input></el-form-item>
+        <el-form-item label="微博登录组件AppID"><el-input v-model="coreConfig.sinaLoginAppID"></el-input></el-form-item>
+        <el-form-item label="微博登录组件AppKey"><el-input v-model="coreConfig.sinaLoginAppKey"></el-input></el-form-item>
+        <el-form-item>
+            <el-button type="primary" @click="onSubmit">提交</el-button>
+            <el-button>重置</el-button>
+        </el-form-item>
+    </el-form>
     </div>
 </template>
 
@@ -17,25 +23,37 @@
         name: 'main',
         data() {
             return {
-                
+                coreConfig: {
+                    alipayID: '',
+                    alipayVerifyCode: '',
+                    QQLoginAppID: '',
+                    QQLoginAppKey: '',
+                    WechatLoginAppID: '',
+                    WechatLoginAppKey: '',
+                    sinaLoginAppID: '',
+                    sinaLoginAppKey: ''
+                }
             }
         },
         computed: {
-            role() {
-                return this.name === 'admin' ? '超级管理员' : '普通用户';
-            }
+            
         },
         mounted() {
-        	this.url = './static/vuetable.json';
-            this.$axios.get(this.url).then((response) => {
-                let _data=JSON.stringify(response.data);
-		    	console.log("hello：" + _data);
-            })
-//          this.$axios.get('/show/mee').then((response) => {
-//              let _data=JSON.stringify(response.data);
-//		    	console.log("hello：" + _data);
-//          })
-		}
+        	
+        },
+        created() {
+            this.getSiteCoreData();
+        },
+        methods: {
+           getSiteCoreData(){
+               this.$axios.get('static/base/config.json').then((res) => {
+                  this.coreConfig = res.data.coreConfig;
+                })
+           },
+           onSubmit(){
+
+           }
+        }
     }
 
 </script>

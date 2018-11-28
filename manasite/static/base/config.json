@@ -1,0 +1,34 @@
+{
+    "siteConfig": {
+        "siteName": "M.X",
+        "siteAddress": "localhost:2322",
+        "siteAuthor": "JuvoS",
+        "siteEngine": "JuvoS - M.X",
+        "siteCopyRight": "JuvoS - M.X",
+        "siteServeHotLine": "mx-88888888",
+        "siteRecordNum": "明88888888号",
+        "siteSwitch": false,
+        "siteCloseExplain": ""
+    },
+    "seoConfig": {
+        "seoTitle": "一直在定义未来",
+        "seoKeywords": "M.X;未来;",
+        "seoDescription": "为众多世界创造出具有极致品质的智能互联网产品体验,提供战略性的服务创新设计、产品交互设计、产品界面设计和用户体验咨询服务.",
+        "seoTitleEn": "Has been defining the future",
+        "seoKeywordsEn": "M.X;future;",
+        "seoDescriptionEn": "Create the best quality intelligent Internet product experience for many worlds, and provide strategic service innovation design, product interaction design, product interface design and user experience consulting services."
+    },
+    "bottomjsConfig": {
+        "content": ""
+    },
+    "coreConfig": {
+        "alipayID": "**************",
+        "alipayVerifyCode": "******",
+        "QQLoginAppID": "****************************",
+        "QQLoginAppKey": "********************************************************",
+        "WechatLoginAppID": "****************************",
+        "WechatLoginAppKey": "********************************************************",
+        "sinaLoginAppID": "****************************",
+        "sinaLoginAppKey": "********************************************************"
+    }
+}

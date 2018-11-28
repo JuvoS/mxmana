@@ -1,0 +1,196 @@
+a,
+address,
+article,
+aside,
+audio,
+b,
+body,
+button,
+canvas,
+dd,
+details,
+div,
+dl,
+dt,
+em,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+input,
+label,
+li,
+mark,
+nav,
+object,
+ol,
+p,
+section,
+select,
+span,
+strong,
+table,
+tbody,
+td,
+textarea,
+tfoot,
+th,
+thead,
+time,
+tr,
+ul,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+    display: block;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+caption,
+th {
+    text-align: left;
+    font-weight: 400;
+}
+
+body,
+html,
+iframe,
+img {
+    border: 0
+}
+
+body {
+    /* font-family: "å¾®è½¯é›…é»‘","arial regular", "Arial"; */
+    font-family: "å¾®è½¯é›…é»‘";
+}
+
+address,
+i {
+    font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%
+}
+
+textarea {
+    overflow: auto;
+    resize: none;
+}
+
+label {
+    cursor: default;
+}
+
+a,
+button {
+    cursor: pointer;
+}
+
+button,
+input {
+    outline: 0
+}
+
+b,
+em,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+}
+ol,
+ul {
+    list-style: none;
+}
+
+a:active {
+    background-color: transparent;
+}
+
+a:active,a:visited,
+a:hover{
+    text-decoration: none;
+    outline: 0 none;
+    transition: 130ms ease-in;
+    -moz-transition: 130ms ease-in;
+    -webkit-transition: 130ms ease-in;
+    -o-transition: 130ms ease-in
+}
+a:-webkit-any-link {
+    text-decoration: none;
+}
+a:focus{
+    outline: none;
+}
+.clearfix {
+    *zoom: 1
+}
+.clearfix::after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+/* html{
+    -webkit-tap-highlight-color:none;
+} */
